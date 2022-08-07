@@ -26,11 +26,23 @@ std::vector<Token> Lexer::lex()
         } else if (lookahead == '*')
         {
             currentPos++;
-            tokens.push_back(Token(Times, std::string(1, lookahead)));
+            TokenType type = Times;
+            if (input[currentPos] == '*')
+            {
+                currentPos++;
+                type = Potentiation;
+            }
+            tokens.push_back(Token(type, std::string(1, lookahead)));
         } else if (lookahead == '/')
         {
             currentPos++;
-            tokens.push_back(Token(Division, std::string(1, lookahead)));
+            TokenType type = Division;
+            if (input[currentPos] == '/')
+            {
+                currentPos++;
+                type = Rooting;
+            }
+            tokens.push_back(Token(type, std::string(1, lookahead)));
         } else if (lookahead == '{')
         {
             currentPos++;

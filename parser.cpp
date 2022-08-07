@@ -59,9 +59,33 @@ Node Parser::factor()
     }
     
 }
-Node Parser::term()
+
+Node Parser::fterm()
 {
     Node node = factor();
+    while (lookahead.tpe == Potentiation || lookahead.tpe == Rooting)
+    {
+        Token tok = lookahead;
+        BOperator op;
+        if(tok.tpe == Potentiation)
+        {   
+            op = Pow;
+            eat(Potentiation);
+        } else
+        {
+            op = Root;
+            eat(Rooting);
+        }
+        Bop* b = new Bop(op, node, factor());
+        node = Node(binop, b);
+    }
+
+    return node;
+}
+
+Node Parser::term()
+{
+    Node node = fterm();
     while (lookahead.tpe == Times || lookahead.tpe == Division)
     {
         Token tok = lookahead;

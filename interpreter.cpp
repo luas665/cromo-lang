@@ -40,6 +40,12 @@ Var Interpreter::visitBinOp(Bop b)
     case Div:
         result = l.div(r);
         break;
+    case Pow:
+        result = l.pow(r);
+        break;
+    case Root:
+        result = l.root(r);
+        break;
     default:
         result = Var();
         break;

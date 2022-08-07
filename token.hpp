@@ -10,6 +10,8 @@ enum TokenType{
     Minus,
     Times,
     Division,
+    Potentiation,
+    Rooting,
 
     Identifier,
     LParen,

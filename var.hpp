@@ -1,6 +1,7 @@
 #pragma once 
 #include <map>
 #include <iostream>
+#include <cmath>
 
 enum varType
 {
@@ -24,6 +25,8 @@ public:
     Var min(Var v);
     Var mul(Var v);
     Var div(Var v);
+    Var pow(Var v);
+    Var root(Var v);
     double get_num();
 
 };

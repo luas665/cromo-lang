@@ -1,7 +1,6 @@
 #include "var.hpp"
 
 
-
 Var::Var()
 {
     this->tpe = none;
@@ -56,6 +55,22 @@ Var Var::div(Var v)
     }
 
     return Var();
+}
+
+Var Var::pow(Var v)
+{
+    double r = get_num();
+    double l = v.get_num();
+    double result = std::pow(r, l);
+    return result;
+}
+
+Var Var::root(Var v)
+{
+    double r = get_num();
+    double l = v.get_num();
+    double result = std::pow(r, 1.0/l);
+    return result;
 }
 
 double Var::get_num()

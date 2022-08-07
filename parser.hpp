@@ -10,6 +10,8 @@ enum BOperator
     Min,
     Mul,
     Div,
+    Pow,
+    Root,
     Equal,
 };
 
@@ -118,6 +120,7 @@ public:
     Token get_nxt_tok();
     Token peek();
     Node factor();
+    Node fterm();
     Node term();
     Node expression();
     AST parse();
