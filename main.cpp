@@ -3,14 +3,7 @@
 
 using namespace std;
 
-void interpret(std::string txt)
-{
-    vector<Token> toks = Lexer(txt).lex();
-    AST a = Parser(toks).parse();
-    Interpreter(a).run();
-}
-
-int main(int argc, char const *argv[])
+int idle()
 {
     std::string txt;
     while (true)
@@ -18,10 +11,17 @@ int main(int argc, char const *argv[])
         cout << ">> ";
         getline(cin, txt);
         if (txt != ""){
-            interpret(txt);
+            vector<Token> toks = Lexer(txt).lex();
+            AST a = Parser(toks).parse();
+            Interpreter(a).run();
         }
     }
-    
 
     return 0;
+    
+}
+
+int main(int argc, char const *argv[])
+{
+    return idle();	
 }
