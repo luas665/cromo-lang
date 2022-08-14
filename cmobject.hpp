@@ -29,6 +29,10 @@ public:
 
 };
 
+
+
+
+
 typedef CmObject* cfunction(CmObject* self, CmObject* args);
 
 class Data

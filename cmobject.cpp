@@ -14,6 +14,12 @@ double toNumber(CmObject *object)
     }
 }
 
+
+
+
+
+
+
 CmObject* defaultFunc(CmObject* self, CmObject* args)
 {
     return new CmObject();
